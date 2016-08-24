@@ -1,0 +1,46 @@
+
+public class LinkedListCycle {
+	public boolean hasCycle(ListNode head) {
+        ListNode fast = head;
+        ListNode slow = head;
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = slow.next.next;
+
+            if(slow == fast){
+                return true;
+            }
+        }
+        return false;
+    }
+	/*
+	boolean hasLoop(Node first) {
+	
+	    if(first == null) // list does not exist..so no loop either.
+	        return false;
+	
+	    Node slow, fast; // create two references.
+	
+	    slow = fast = first; // make both refer to the start of the list.
+	
+	    while(true) {
+	
+	        slow = slow.next;          // 1 hop.
+	
+	        if(fast.next != null)
+	            fast = fast.next.next; // 2 hops.
+	        else
+	            return false;          // next node null => no loop.
+	
+	        if(slow == null || fast == null) // if either hits null..no loop.
+	            return false;
+	
+	        if(slow == fast) // if the two ever meet...we must have a loop.
+	            return true;
+	    }
+	}
+	 */
+	public static void main(String args[]){
+		
+	}
+}
