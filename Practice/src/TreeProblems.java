@@ -183,6 +183,27 @@ public class TreeProblems {
         }
     }
 	
+	public static int sumLeftLeaves(TreeNode root){
+		int sum = 0;
+		if(root == null) return sum;
+		Queue<TreeNode> q = new LinkedList<TreeNode>();
+		q.add(root);
+		while(!q.isEmpty()){
+			TreeNode tn = q.poll();
+			if(tn.left != null){
+				// if its a leaf node; then add to sum
+				if((tn.left.left == null) && (tn.left.right == null)){
+					sum+=tn.left.val;
+				}
+				q.add(tn.left);
+			}
+			if(tn.right != null){
+				q.add(tn.right);
+			}
+		}
+		return sum;
+	}
+	
 	public static void main(String args[]){
 		TreeNode root = new TreeNode(2);
 		root.left = new TreeNode(7);
@@ -212,5 +233,8 @@ public class TreeProblems {
 		q.right.left = new TreeNode(9);
 		q.right.right = new TreeNode(4);
 		System.out.println(isSameTree(p,q));
+		
+		TreeNode tn = new TreeNode(20);
+		
 	}
 }

@@ -1,7 +1,7 @@
 import java.util.HashSet;
 
 public class StringProblems {
-	String stringCompression(String s){
+	static String stringCompression(String s){
 		int start = 0;
 		int c = 0;
 		String str = "";
@@ -57,12 +57,12 @@ public class StringProblems {
     }
     
 	public static void main(String args[]){
-		//String s = "aabcccccaaa";
-		//System.out.println(stringCompression(s));
+		String s = "aabcccccaaa";
+		System.out.println(stringCompression(s));
 		//System.out.println(reverseVowels("hello"));
 		int a = 3;
 		int b = 4;
 		//System.out.println(a << 1);
-		System.out.println(1%10);
+		//System.out.println(1%10);
 	}
 }

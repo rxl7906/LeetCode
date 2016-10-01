@@ -20,7 +20,7 @@ public class GroupAnagrams {
             }
             String sortedStr = new String(arr);
             //System.out.println(sortedStr);
-            System.out.println((int)'a');
+            //System.out.println(sortedStr.);
         	if(hm.containsKey(sortedStr)){
         		hm.get(sortedStr).add(s);
         	} else {
