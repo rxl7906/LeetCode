@@ -1,14 +1,22 @@
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class Permutation {
+	public static Set<String> ar = new LinkedHashSet<String>();
+	
 	public static void permutation(String str) { 
 	    permutation("", str); 
 	}
 
-	private static void permutation(String prefix, String str) {
+	public static void permutation(String prefix, String str) {
 	    int n = str.length();
-	    if (n == 0) System.out.println(prefix);
+	    if (n == 0) {
+	    	ar.add(prefix);
+	    	//System.out.println(prefix);
+	    }
 	    else {
 	        for (int i = 0; i < n; i++)
 	            permutation(prefix + str.charAt(i), str.substring(0, i) + str.substring(i+1, n));
@@ -39,7 +47,24 @@ public class Permutation {
 		String last = str.substring(j);
 		return first + c + last;
 	}
+	
+	public static int findRank(String str){
+		char[] arr = str.toCharArray();
+		Arrays.sort(arr);
+		//System.out.println(String.copyValueOf(arr));
+		permutation(String.copyValueOf(arr));
+		int c = 0;
+		for(String s : ar){
+			if(s.equals(str)){
+				return c;
+			}
+			System.out.println(s);
+			c++;
+		}
+		return -1;
+	}
 	public static void main(String args[]){
-		permutation("abcdef");
+		String str = "caabbc";
+		System.out.println(findRank(str));
 	}
 }
